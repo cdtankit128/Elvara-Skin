@@ -7,19 +7,48 @@
         "padding_bottom": 36
       }
     },
-    "form": {
+    "contact_form": {
       "type": "contact-form",
       "settings": {
-        "heading": "",
+        "heading": "Get in Touch",
         "heading_size": "h1",
         "color_scheme": "scheme-1",
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 52
+      }
+    },
+    "text": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Customer Service",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Have questions about your skincare routine, orders, or our ingredients? Our expert concierge team is here to help.</p><p><strong>Email:</strong> support@elvaraskin.com</p><p><strong>Hours:</strong> Monday – Friday, 9:00 AM – 5:00 PM EST</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 52
       }
     }
   },
   "order": [
     "main",
-    "form"
+    "text",
+    "contact_form"
   ]
 }

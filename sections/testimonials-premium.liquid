@@ -1,0 +1,218 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .testimonials-premium {
+    background-color: {{ section.settings.bg_color }};
+  }
+
+  .testimonials-premium__heading {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .testimonials-premium__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .testimonials-premium__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+  }
+
+  .testimonials-premium__card {
+    background: #FFFFFF;
+    padding: 3rem;
+    border-radius: 1.6rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .testimonials-premium__stars {
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-bottom: 2rem;
+    color: #FFD700;
+  }
+
+  .testimonials-premium__stars svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+
+  .testimonials-premium__text {
+    font-size: 1.7rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: #4A4A4A;
+    margin-bottom: 2rem;
+  }
+
+  .testimonials-premium__author {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: #000;
+  }
+
+  .testimonials-premium__author-title {
+    font-size: 1.2rem;
+    color: #999;
+    margin-top: 0.4rem;
+  }
+{%- endstyle -%}
+
+<div class="testimonials-premium section-{{ section.id }}-padding">
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="testimonials-premium__heading h1">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="testimonials-premium__grid">
+      {%- for block in section.blocks -%}
+        <div class="testimonials-premium__card" {{ block.shopify_attributes }}>
+          <div class="testimonials-premium__stars">
+            {%- for i in (1..5) -%}
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            {%- endfor -%}
+          </div>
+          <blockquote class="testimonials-premium__text">
+            “{{ block.settings.review_text }}”
+          </blockquote>
+          {%- if block.settings.author_name != blank -%}
+            <div class="testimonials-premium__author">{{ block.settings.author_name }}</div>
+          {%- endif -%}
+          {%- if block.settings.author_title != blank -%}
+            <div class="testimonials-premium__author-title">{{ block.settings.author_title }}</div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Social Proof (Premium)",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "What Our Customers Say",
+      "label": "Heading"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "default": "#F5F1EB",
+      "label": "Background Color"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 100
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "default": "This completely changed my skin. Feels luxurious and works fast.",
+          "label": "Review Text"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "author_name",
+          "default": "Customer Name",
+          "label": "Author Name"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "author_title",
+          "default": "Verified Buyer",
+          "label": "Author Title/Location"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Social Proof (Premium)",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "review_text": "This completely changed my skin. Feels luxurious and works fast.",
+            "author_name": "Ananya",
+            "author_title": "Verified Buyer, Mumbai"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "review_text": "Hydration is insane. My skin glows every morning.",
+            "author_name": "Riya",
+            "author_title": "Verified Buyer, Delhi"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "review_text": "Finally found something natural that actually works.",
+            "author_name": "Sanya",
+            "author_title": "Verified Buyer, Bangalore"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

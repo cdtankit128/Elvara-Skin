@@ -3,208 +3,242 @@
     "image_banner": {
       "type": "image-banner",
       "blocks": {
+        "brand_label": {
+          "type": "brand_label",
+          "settings": { "label": "ELVARA SKIN" }
+        },
         "heading": {
           "type": "heading",
-          "settings": {
-            "heading": "Image banner",
-            "heading_size": "h0"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
+          "settings": { "heading": "Reveal Your Natural Glow", "heading_size": "hxl" }
         },
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
+            "button_label_1": "Shop Now",
             "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
+            "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false
           }
         }
       },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
+      "block_order": ["brand_label", "heading", "button"],
       "settings": {
-        "image_overlay_opacity": 40,
+        "image_overlay_opacity": 20,
         "image_height": "large",
-        "desktop_content_position": "bottom-center",
+        "desktop_content_position": "middle-center",
         "show_text_box": false,
         "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
+        "color_scheme": "scheme-1",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
       }
     },
-    "rich_text": {
+    "video_showcase": {
+      "type": "video-showcase",
+      "settings": {
+        "heading": "Experience Elvara",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/71811cfe44724c8bb24d6ce69bf18c35.mp4",
+        "tagline": "Confidence in Every Drop",
+        "button_label": "Shop Now",
+        "button_link": "shopify://collections/all",
+        "container_width": 1100,
+        "aspect_ratio": "16:9",
+        "bg_color": "#F5F1EB",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "brand_promise": {
+      "type": "trust-badges",
+      "blocks": {
+        "badge_1": { "type": "badge", "settings": { "icon": "", "text": "✔ Dermatologically Tested" } },
+        "badge_2": { "type": "badge", "settings": { "icon": "", "text": "✔ 100% Natural Ingredients" } },
+        "badge_3": { "type": "badge", "settings": { "icon": "", "text": "✔ Free Shipping Across India" } },
+        "badge_4": { "type": "badge", "settings": { "icon": "", "text": "✔ Suitable for All Skin Types" } }
+      },
+      "block_order": ["badge_1", "badge_2", "badge_3", "badge_4"],
+      "settings": { "title": "" }
+    },
+    "featured_heading": {
       "type": "rich-text",
       "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
-          }
-        }
+        "heading": { "type": "heading", "settings": { "heading": "Check out our latest products", "heading_size": "h1" } },
+        "subtitle": { "type": "text", "settings": { "text": "" } }
       },
-      "block_order": [
-        "heading",
-        "text"
-      ],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
-      }
+      "block_order": ["heading", "subtitle"],
+      "settings": { "color_scheme": "scheme-1", "full_width": true, "padding_top": 80, "padding_bottom": 20 }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
+        "title": "",
+        "heading_size": "h1",
         "collection": "all",
-        "products_to_show": 8,
+        "products_to_show": 4,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
         "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
+        "swipe_on_mobile": true,
+        "image_ratio": "portrait",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
         "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36
+        "padding_top": 0,
+        "padding_bottom": 100
       }
     },
-    "collage": {
-      "type": "collage",
-      "blocks": {
-        "collection-0": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "product": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "second_image": false
-          }
-        },
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
-      ],
-      "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "video": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "heading_size": "h1",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
+    "usp_section": {
       "type": "multicolumn",
       "blocks": {
-        "column1": {
+        "usp_1": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "image": "shopify://shop_images/Gemini_Generated_Image_gwsdlgwsdlgwsdlg.png",
+            "title": "Glow Enhancement",
+            "text": "<p>Restore your skin's natural, radiant luminosity with powerful active botanicals.</p>",
             "link_label": "",
             "link": ""
           }
         },
-        "column2": {
+        "usp_2": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "image": "shopify://shop_images/hydration_gel.png",
+            "title": "Deep Hydration",
+            "text": "<p>Lock in moisture for plump, youthful, and resilient skin.</p>",
             "link_label": "",
             "link": ""
           }
         },
-        "column3": {
+        "usp_3": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "image": "shopify://shop_images/Gemini_Generated_Image_e8p0jle8p0jle8p0.png",
+            "title": "Gentle Care",
+            "text": "<p>Soothe and protect sensitive skin with dermatologist-approved calming extracts.</p>",
             "link_label": "",
             "link": ""
           }
         }
       },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
+      "block_order": ["usp_1", "usp_2", "usp_3"],
       "settings": {
         "title": "",
         "heading_size": "h1",
-        "image_width": "third",
+        "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 3,
         "column_alignment": "center",
-        "background_style": "none",
+        "background_style": "primary",
         "button_label": "",
         "button_link": "",
         "swipe_on_mobile": false,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
         "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "lifestyle_emotion": {
+      "type": "premium-lifestyle-image",
+      "settings": {
+        "image_url": "https://cdn.shopify.com/s/files/1/0603/8700/0449/files/IMAGE_BANNER_2.png?v=1774477353",
+        "heading": "Skincare, Elevated",
+        "subheading": "Crafted for those who value purity and performance"
+      }
+    },
+    "minimal_quote": {
+      "type": "minimal-quote",
+      "settings": {
+        "quote": "Luxury is not a promise. It’s a standard."
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": { "heading": "Join Elvara Skin", "heading_size": "h1" }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": { "text": "<p>Get skincare tips + exclusive offers.</p>" }
+        },
+        "email_form": { "type": "email_form", "settings": {} }
+      },
+      "block_order": ["heading", "paragraph", "email_form"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "multi_product_slider": {
+      "type": "multi-product-slider",
+      "settings": {
+        "title": "Check Out Our Products",
+        "collection": "all",
+        "products_to_show": 6,
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "why_elvara": {
+      "type": "why-elvara",
+      "blocks": {
+        "benefit_1": { "type": "benefit", "settings": { "icon": "glow", "title": "Radiant Glow", "description": "Enhances natural skin brightness" } },
+        "benefit_2": { "type": "benefit", "settings": { "icon": "hydration", "title": "Deep Hydration", "description": "Locks moisture for long-lasting softness" } },
+        "benefit_3": { "type": "benefit", "settings": { "icon": "natural", "title": "100% Natural", "description": "Crafted with pure, skin-safe ingredients" } },
+        "benefit_4": { "type": "benefit", "settings": { "icon": "tested", "title": "Dermatologically Tested", "description": "Safe and effective for all skin types" } }
+      },
+      "block_order": ["benefit_1", "benefit_2", "benefit_3", "benefit_4"],
+      "settings": { "heading": "Why Elvara?", "bg_color": "#FBFBF9", "padding_top": 120, "padding_bottom": 120 }
+    },
+    "ingredient_story": {
+      "type": "ingredient-story",
+      "blocks": {
+        "ing_1": { "type": "ingredient", "settings": { "ingredient_name": "Vitamin C", "ingredient_benefit": "Brightens and evens skin tone" } },
+        "ing_2": { "type": "ingredient", "settings": { "ingredient_name": "Hyaluronic Acid", "ingredient_benefit": "Deep hydration and plumping" } },
+        "ing_3": { "type": "ingredient", "settings": { "ingredient_name": "Natural Oils", "ingredient_benefit": "Repair and restore skin barrier" } }
+      },
+      "block_order": ["ing_1", "ing_2", "ing_3"],
+      "settings": { "layout": "image_first", "heading": "Powered by Nature", "description": "Carefully selected botanical ingredients designed to nourish, restore, and protect your skin.", "bg_color": "#FFFFFF", "padding_top": 120, "padding_bottom": 120 }
+    },
+    "testimonials_premium": {
+      "type": "testimonials-premium",
+      "blocks": {
+        "test_1": { "type": "testimonial", "settings": { "review_text": "This completely changed my skin. Feels luxurious and works fast.", "author_name": "Ananya", "author_title": "Verified Buyer, Mumbai" } },
+        "test_2": { "type": "testimonial", "settings": { "review_text": "Hydration is insane. My skin glows every morning.", "author_name": "Riya", "author_title": "Verified Buyer, Delhi" } },
+        "test_3": { "type": "testimonial", "settings": { "review_text": "Finally found something natural that actually works.", "author_name": "Sanya", "author_title": "Verified Buyer, Bangalore" } }
+      },
+      "block_order": ["test_1", "test_2", "test_3"],
+      "settings": { "heading": "What Our Customers Say", "bg_color": "#F5F1EB", "padding_top": 120, "padding_bottom": 120 }
+    },
+    "sticky_cta": {
+      "type": "sticky-cta",
+      "settings": {
+        "button_label": "Shop Now",
+        "button_link": "shopify://collections/all",
+        "show_urgency": true,
+        "urgency_text": "Limited availability"
       }
     }
   },
   "order": [
     "image_banner",
-    "rich_text",
-    "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
+    "video_showcase",
+    "lifestyle_emotion",
+    "why_elvara",
+    "results_proof",
+    "ingredient_story",
+    "minimal_quote",
+    "testimonials_premium",
+    "multi_product_slider",
+    "newsletter"
   ]
 }

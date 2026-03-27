@@ -1,0 +1,58 @@
+{%- style -%}
+  .minimal-quote {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+    background-color: #FFFFFF;
+    text-align: center;
+  }
+
+  .minimal-quote__text {
+    font-size: 4.8rem;
+    font-family: serif; /* Luxury Serif fallback */
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.1rem;
+    color: #1A1A1A;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    line-height: 1.2;
+  }
+
+  @media screen and (max-width: 749px) {
+    .minimal-quote {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
+    .minimal-quote__text {
+      font-size: 3rem;
+    }
+  }
+{%- endstyle -%}
+
+<section class="minimal-quote animate--fade-up">
+  <div class="page-width">
+    <p class="minimal-quote__text">{{ section.settings.quote }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Minimal Quote Section",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "quote",
+      "default": "Luxury is not a promise. It’s a standard.",
+      "label": "Quote Content"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Minimal Quote Section"
+    }
+  ]
+}
+{% endschema %}

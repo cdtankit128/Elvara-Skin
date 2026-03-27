@@ -1,0 +1,69 @@
+.elvara-trust-badges {
+  padding: 4rem 0;
+  background-color: rgb(var(--color-base-background-2));
+  border-top: 1px solid rgba(var(--color-foreground), 0.05);
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.05);
+}
+
+.elvara-trust-badges .page-width {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+@media screen and (min-width: 750px) {
+  .elvara-trust-badges .page-width {
+    justify-content: space-between;
+    gap: 2rem;
+  }
+}
+
+.elvara-trust-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 140px;
+}
+
+.elvara-trust-badge__icon {
+  font-size: 2.8rem;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+.elvara-trust-badge__text {
+  font-family: var(--font-heading-family);
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgb(var(--color-foreground));
+  font-weight: 500;
+}
+.elvara-trust-badges .page-width {
+  display: flex !important;
+  justify-content: space-around !important;
+  padding: 20px 0 !important;
+  font-size: 14px !important;
+  letter-spacing: 0.5px !important;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.elvara-trust-badge {
+  min-width: auto !important;
+  flex: 0 1 auto !important;
+  gap: 5px !important;
+}
+.elvara-trust-badge__text {
+  font-size: 14px !important;
+  text-transform: none !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.5px !important;
+}
+.elvara-trust-badge__icon {
+  display: none !important;
+}

@@ -1,0 +1,337 @@
+
+
+--- CONTENT FROM: Store_Design_Standards_Official.pdf ---
+
+DIGITAL HEROES
+Store Design Standards  |  Confidential
+© 2025 Digital Heroes  |  Internal Use Only
+Page 1
+Store Design Standards
+Shopify Development Challenge — Official Guidelines
+Document Type:
+Training Assignment Guidelines
+Issued By:
+Digital Heroes — Recruitment Team
+Store Password:
+Test@123
+Valid For:
+Shopify Development Trainees
+01  Color Palette Usage
+Every professional store follows a structured color palette system. When selecting your brand colors:
+•
+Use 3 main colors for the entire store:
+   →  Primary Color — Main brand color
+   →  Secondary Color — Support color
+   →  Accent Color — Highlight color for buttons, offers, CTAs
+Recommended Color Ratio
+60%
+Primary Color
+Main backgrounds & dominant sections
+30%
+Secondary Color
+Supporting sections & backgrounds
+10%
+Accent Color
+Buttons, highlights & CTA elements
+Observe stores carefully and notice how they apply color hierarchy across sections. The goal is to keep the
+design clean, balanced, and visually appealing.
+02  Study Other Stores Carefully
+Before designing your store, analyze successful brands in your niche and observe how they use:
+   →  Colors & Spacing
+   →  Fonts & Typography
+   →  Sections & Product layouts
+   →  Trust signals
+Your goal is not to copy, but to understand what makes a store look professional and high-converting.
+03  Home Page Structure
+DIGITAL HEROES
+Store Design Standards  |  Confidential
+© 2025 Digital Heroes  |  Internal Use Only
+Page 2
+Your homepage should feel complete and detailed, not short or empty. Make sure to add multiple
+sections to create a longer homepage that showcases products, benefits, and brand story.
+Required Sections:
+Hero Banner with CTA
+Featured Collections
+Best-Selling Products
+Benefits / USP Section
+Product Highlights
+Customer Testimonials
+Trust Badges
+Newsletter Signup
+A longer, structured homepage improves customer experience and makes the brand look more professional.
+04  Using Shopify AI
+You are encouraged to use Shopify AI tools to improve your store. Use Shopify AI to:
+•
+Generate new sections for the homepage
+•
+Improve product descriptions
+•
+Optimize layout ideas & generate better copywriting
+If you want additional sections not available in the theme, use Shopify AI to help generate them.
+05  Fonts & Typography
+Choose fonts that match the brand style of your niche:
+   →  Fashion brands — Elegant / modern fonts
+   →  Tech brands — Clean / minimal fonts
+   →  Kids brands — Friendly / playful fonts
+Best Practice: Use one font for headings and one for body text. Avoid using too many fonts as it makes the
+store look unprofessional.
+06  Overall Design Focus
+Your primary focus should always be on delivering a store that feels like a real, ready-to-sell brand:
+Clean Layout
+Strong Branding
+Professional Design
+Good Visual Hierarchy
+Realistic eCommerce Experience
+Market-Ready Appearance
+DIGITAL HEROES
+Store Design Standards  |  Confidential
+© 2025 Digital Heroes  |  Internal Use Only
+Page 3
+The store should look like a real brand that is ready to sell products — not just a test store.
+This document is issued by Digital Heroes for internal training purposes only. All guidelines must be followed to
+ensure a professional evaluation outcome.
+
+
+--- CONTENT FROM: 2_Days_Intensive_Shopify_Training_Official.pdf ---
+
+DIGITAL HEROES
+2-Day Intensive Shopify Training  |  Internal
+© 2025 Digital Heroes  |  For Trainee Use Only
+Page 1
+2-Day Intensive Shopify Training
+Official Training Program — Digital Heroes Recruitment
+Program:
+2-Day Intensive Shopify Store Development
+Issued By:
+Digital Heroes — Recruitment & Training Team
+Duration:
+Day 1: Foundation + Store Structure (10–12 hrs)  |  Day 2: Polish, Testing & Delivery (10–12 hrs)
+Goal:
+Build 1 fully functional, professional Shopify store — ready for real-world deployment
+Niche Rule: Pick any niche of your choice (Beauty, Fashion, Clothing, Dropshipping / General Store, Baby,
+Sport, etc.) — but it must include 3–10 products with a clear target customer.
+DAY 1
+Foundation + Store Structure | 10–12 Hours
+01  Setup & Environment — 1 Hour
+Objective: Prepare all tools and accounts correctly.
+•
+Create new Shopify Partner Account (fresh email) + Development Store
+•
+Enable: Password protection & Development store mode (no payments required)
+•
+Choose Theme: Dawn theme or any paid theme
+•
+Setup basic structure: Home / Catalog / Collections / Contact / Track Order (optional)
+•
+Rename store to match niche (e.g. Clothing Brand, Pet Brand)
+•
+Set timezone, currency, and basic store info
+•
+Setup Navigation: Main menu + Footer menu
+•
+Create essential page placeholders: About, Contact, FAQ, Shipping, Returns, Privacy Policy, Terms of
+Service
+•
+Domain Basics overview: Shopify domain vs Custom domain
+02  Brand Identity & Planning — 1 Hour
+Objective: Build a professional brand foundation before designing.
+•
+Decide Niche + Sub-niche (e.g. Pet → Dogs / Beauty → Skincare)
+•
+Define: Brand name, target customer (age, needs, budget), brand voice (premium / playful / minimal / bold)
+•
+Create: Logo (AI tool or Canva), color palette (Primary / Secondary / Accent), font pairing (Heading + Body)
+Deliverables:
+•
+Logo — PNG + transparent background
+•
+Color palette reference document
+DIGITAL HEROES
+2-Day Intensive Shopify Training  |  Internal
+© 2025 Digital Heroes  |  For Trainee Use Only
+Page 2
+•
+Font choices (Heading + Body)
+•
+Brand voice definition
+03  Product Research & Import — 2 Hours
+Objective: Add real, sellable products.
+•
+Choose 3–5 high-quality products (AliExpress or supplier of choice)
+Each product must include:
+•
+Optimized title
+•
+Clear description — benefits + features
+•
+Proper images (high quality)
+•
+Variants (if applicable)
+•
+Pricing & compare price
+•
+SKU + inventory setup
+•
+Product Type / Vendor / Tags
+•
+SEO fields: meta title + meta description
+•
+Collections mapping
+•
+Shipping info snippet
+Product Criteria:
+•
+Good reviews
+•
+Clear images
+•
+Solves a problem or fulfils a desire
+Key eCommerce Conversion Elements:
+•
+Sticky Add-to-Cart Button (theme dependent)
+•
+Trust Signals — trust badges (icons or dedicated section)
+•
+Announcement Bar — offers, shipping details
+•
+Email Collection — capture pop-up
+•
+Discount Strategies — % off, fixed amount, free shipping, BOGO (via apps)
+04  Essential App Setup — 1.5 Hours
+Install and configure the following apps:
+•
+Judge.me Reviews
+•
+Shopify Search & Discovery
+•
+Shopify Bundles
+•
+Shopify Marketplace Connect
+•
+Shopify Subscriptions
+•
+Labeler – Product Labels
+For each app: Enable widgets, adjust design to match brand, and test functionality.
+05  Homepage & Core Pages Design — 2.5 Hours
+Required Homepage Sections:
+DIGITAL HEROES
+2-Day Intensive Shopify Training  |  Internal
+© 2025 Digital Heroes  |  For Trainee Use Only
+Page 3
+•
+Hero section — banner + CTA
+•
+Featured collections
+•
+Best-selling products
+•
+Benefits / USP section
+•
+Testimonials
+•
+Newsletter signup
+•
+Footer — policies + social links
+•
+Trust badges
+Also create standalone pages:
+•
+About Us
+•
+Contact Us
+•
+FAQ
+•
+Shipping & Returns
+06  AI Assistance & Optimization — 1 Hour
+Use Shopify Sidekick AI for:
+•
+Section layout suggestions
+•
+Copy improvements & SEO descriptions
+•
+Navigation optimization
+•
+Generating additional sections not available in the theme
+DAY 2
+Polishing, Testing & Delivery | 10–12 Hours
+07  Product Page & UX Optimization — 2 Hours
+Focus areas:
+•
+Clean image galleries
+•
+Variant selectors
+•
+Sticky add-to-cart button
+•
+Trust badges
+•
+Reviews positioning
+•
+Mobile responsiveness
+08  Cart, Checkout & Flow Testing — 1.5 Hours
+Test the full customer journey: Homepage → Product → Cart → Checkout
+•
+Cart upsells
+•
+Shipping calculations
+•
+Discount codes
+•
+Checkout behavior
+Use test mode — no real payments required.
+DIGITAL HEROES
+2-Day Intensive Shopify Training  |  Internal
+© 2025 Digital Heroes  |  For Trainee Use Only
+Page 4
+09  Visual & Technical Refinement — 2 Hours
+•
+Fix spacing, padding & alignment
+•
+Match colors exactly to brand palette
+•
+Improve typography
+•
+Consistent buttons & icons
+•
+Optimize image sizes
+•
+Test on mobile + desktop
+10  Final Review & QA — 1.5 Hours
+•
+Check every page manually
+•
+Remove all placeholder content
+•
+Confirm all links work
+•
+Validate brand consistency
+•
+Shipping rate appears correctly
+•
+Discount codes apply correctly
+11  Deliverables Preparation — 1 Hour
+Prepare final submission package:
+  Partner account access OR collaborator invite
+  Shopify preview link + store password
+  Product CSV file
+  Image folders: original images + background-removed images
+  Store confirmed ready for review
+  Core Learning Objectives
+1.  Shopify Theme Analysis — Investigate top-selling Shopify themes and the key factors contributing to their
+success.
+2.  Case Studies of Successful Brands — Examine established Shopify stores and extract design +
+conversion principles.
+3.  Dropshipping Model Exploration — Define and differentiate dropshipping across Branded Stores, General
+Stores, and Single Product Stores.
+I Final Objective
+ One complete, professional Shopify store
+ Fully functional customer journey
+DIGITAL HEROES
+2-Day Intensive Shopify Training  |  Internal
+© 2025 Digital Heroes  |  For Trainee Use Only
+Page 5
+ Clean UI/UX and strong branding
+ Ready for real-world deployment
+This document is issued by Digital Heroes for internal training purposes only. All tasks and deliverables must be completed
+within the specified timeframes.

@@ -1,0 +1,86 @@
+{{ 'base.css' | asset_url | stylesheet_tag }}
+{{ 'section-trust-badges.css' | asset_url | stylesheet_tag }}
+<section class="elvara-trust-badges section">
+  <div class="page-width">
+    {%- for block in section.blocks -%}
+      <div class="elvara-trust-badge" {{ block.shopify_attributes }}>
+        <span class="elvara-trust-badge__icon">{{ block.settings.icon }}</span>
+        <span class="elvara-trust-badge__text">{{ block.settings.text }}</span>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trust Badges",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Why Trust Elvara Skin",
+      "label": "Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Trust Badge",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "default": "🔒",
+          "label": "Icon (emoji)"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Secure Payment",
+          "label": "Badge Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trust Badges",
+      "blocks": [
+        {
+          "type": "badge",
+          "settings": {
+            "icon": "🔒",
+            "text": "Secure Payment"
+          }
+        },
+        {
+          "type": "badge",
+          "settings": {
+            "icon": "👨‍⚕️",
+            "text": "Dermatologist Approved"
+          }
+        },
+        {
+          "type": "badge",
+          "settings": {
+            "icon": "🚚",
+            "text": "Fast Delivery"
+          }
+        },
+        {
+          "type": "badge",
+          "settings": {
+            "icon": "🌿",
+            "text": "100% Natural"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,15 +1,18 @@
 {
-  "editor.formatOnSave": false,
-  "[javascript]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[css]": {
-    "editor.formatOnSave": true
-  },
-  "[liquid]": {
-    "editor.defaultFormatter": "Shopify.theme-check-vscode",
-    "editor.formatOnSave": true
-  },
-  "themeCheck.checkOnSave": true
+    "editor.formatOnSave":  false,
+    "[javascript]":  {
+                         "editor.formatOnSave":  true,
+                         "editor.defaultFormatter":  "esbenp.prettier-vscode"
+                     },
+    "[css]":  {
+                  "editor.formatOnSave":  true
+              },
+    "[liquid]":  {
+                     "editor.defaultFormatter":  "Shopify.theme-check-vscode",
+                     "editor.formatOnSave":  true
+                 },
+    "themeCheck.checkOnSave":  true,
+    "python.analysis.extraPaths":  [
+                                       "C:\\Users\\91790\\AppData\\Roaming\\Python\\Python314\\site-packages"
+                                   ]
 }

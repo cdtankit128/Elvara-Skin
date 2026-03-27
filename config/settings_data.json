@@ -2,28 +2,29 @@
   "current": "Default",
   "presets": {
     "Default": {
-      "logo_width": 90,
+      "logo": "",
+      "logo_width": 150,
       "color_schemes": {
         "scheme-1": {
           "settings": {
-            "background": "#FFFFFF",
+            "background": "#FAFAFA",
             "background_gradient": "",
-            "text": "#121212",
-            "button": "#121212",
-            "button_label": "#FFFFFF",
-            "secondary_button_label": "#121212",
-            "shadow": "#121212"
+            "text": "#1C1C1C",
+            "button": "#1C1C1C",
+            "button_label": "#FAFAFA",
+            "secondary_button_label": "#1C1C1C",
+            "shadow": "#1C1C1C"
           }
         },
         "scheme-2": {
           "settings": {
-            "background": "#F3F3F3",
+            "background": "#F5EBE6",
             "background_gradient": "",
-            "text": "#121212",
-            "button": "#121212",
-            "button_label": "#F3F3F3",
-            "secondary_button_label": "#121212",
-            "shadow": "#121212"
+            "text": "#1C1C1C",
+            "button": "#1C1C1C",
+            "button_label": "#F5EBE6",
+            "secondary_button_label": "#1C1C1C",
+            "shadow": "#1C1C1C"
           }
         },
         "scheme-3": {
@@ -50,34 +51,34 @@
         },
         "scheme-5": {
           "settings": {
-            "background": "#334FB4",
+            "background": "#C39F61",
             "background_gradient": "",
             "text": "#FFFFFF",
             "button": "#FFFFFF",
-            "button_label": "#334FB4",
+            "button_label": "#C39F61",
             "secondary_button_label": "#FFFFFF",
-            "shadow": "#121212"
+            "shadow": "#1C1C1C"
           }
         }
       },
-      "type_header_font": "assistant_n4",
-      "heading_scale": 100,
-      "type_body_font": "assistant_n4",
+      "type_header_font": "playfair_display_n4",
+      "heading_scale": 110,
+      "type_body_font": "inter_n4",
       "body_scale": 100,
-      "page_width": 1200,
+      "page_width": 1400,
       "spacing_sections": 0,
       "spacing_grid_horizontal": 8,
       "spacing_grid_vertical": 8,
-      "buttons_border_thickness": 1,
+      "buttons_border_thickness": 0,
       "buttons_border_opacity": 100,
       "buttons_radius": 0,
       "buttons_shadow_opacity": 0,
       "buttons_shadow_horizontal_offset": 0,
-      "buttons_shadow_vertical_offset": 4,
-      "buttons_shadow_blur": 5,
+      "buttons_shadow_vertical_offset": 0,
+      "buttons_shadow_blur": 0,
       "variant_pills_border_thickness": 1,
-      "variant_pills_border_opacity": 55,
-      "variant_pills_radius": 40,
+      "variant_pills_border_opacity": 20,
+      "variant_pills_radius": 0,
       "variant_pills_shadow_opacity": 0,
       "variant_pills_shadow_horizontal_offset": 0,
       "variant_pills_shadow_vertical_offset": 4,
@@ -143,14 +144,14 @@
       "popup_shadow_horizontal_offset": 0,
       "popup_shadow_vertical_offset": 4,
       "popup_shadow_blur": 5,
-      "drawer_border_thickness": 1,
+      "drawer_border_thickness": 0,
       "drawer_border_opacity": 10,
       "drawer_shadow_opacity": 0,
       "drawer_shadow_horizontal_offset": 0,
-      "drawer_shadow_vertical_offset": 4,
-      "drawer_shadow_blur": 5,
+      "drawer_shadow_vertical_offset": 0,
+      "drawer_shadow_blur": 0,
       "badge_position": "bottom left",
-      "badge_corner_radius": 40,
+      "badge_corner_radius": 0,
       "sale_badge_color_scheme": "scheme-5",
       "sold_out_badge_color_scheme": "scheme-3",
       "social_twitter_link": "",
@@ -166,7 +167,7 @@
       "predictive_search_show_vendor": false,
       "predictive_search_show_price": false,
       "currency_code_enabled": true,
-      "cart_type": "notification",
+      "cart_type": "drawer",
       "show_vendor": false,
       "show_cart_note": false,
       "cart_drawer_collection": "",

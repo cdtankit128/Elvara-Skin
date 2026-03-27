@@ -37,6 +37,73 @@
         padding-bottom: {{ section.settings.padding_bottom }}px;
       }
     }
+
+    /* ELVARA PREMIUM PRODUCT INFO STYLES */
+    .product__benefit-line {
+      margin: 1.5rem 0;
+    }
+    .benefit-text {
+      font-size: 1.3rem;
+      letter-spacing: 0.05rem;
+      color: #666;
+      font-style: italic;
+      margin: 0;
+    }
+    .product__trust-line {
+      margin: 2rem 0;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+    .trust-line-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: flex-start;
+    }
+    .trust-item {
+      font-size: 1.1rem;
+      color: #4A4A4A;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+    .trust-item .check {
+      color: #7BB284;
+      font-weight: bold;
+    }
+    .product__title h1 {
+      font-size: 3.2rem;
+      letter-spacing: 0.1rem;
+      margin-bottom: 1rem;
+    }
+    .rating-wrapper {
+      margin-bottom: 1.5rem;
+    }
+    .product__what-you-get {
+      margin: 2.5rem 0;
+      padding: 2rem;
+      background-color: #FBFBF9;
+      border-radius: 0.8rem;
+      border: 1px dashed rgba(0,0,0,0.1);
+    }
+    .wyg-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      margin: 0 0 1rem 0;
+      color: #1A1A1A;
+    }
+    .wyg-content ul {
+      padding-left: 2rem;
+      margin: 0;
+    }
+    .wyg-content li {
+      font-size: 1.3rem;
+      color: #4A4A4A;
+      margin-bottom: 0.5rem;
+    }
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
@@ -674,6 +741,33 @@
                 </product-recommendations>
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
+              {%- when 'trust_badges' -%}
+                {% render 'trust-badges-pdp', block: block %}
+              {%- when 'benefit_line' -%}
+                <div class="product__benefit-line" {{ block.shopify_attributes }}>
+                  <p class="benefit-text">{{ block.settings.text }}</p>
+                </div>
+              {%- when 'trust_line' -%}
+                <div class="product__trust-line" {{ block.shopify_attributes }}>
+                  <div class="trust-line-row">
+                    {%- if block.settings.show_tested -%}
+                      <span class="trust-item"><span class="check">✔</span> Secure Checkout</span>
+                    {%- endif -%}
+                    {%- if block.settings.show_natural -%}
+                      <span class="trust-item"><span class="check">✔</span> Easy Returns</span>
+                    {%- endif -%}
+                    {%- if block.settings.show_shipping -%}
+                      <span class="trust-item"><span class="check">✔</span> Trusted by 100+ Users</span>
+                    {%- endif -%}
+                  </div>
+                </div>
+              {%- when 'what_you_get' -%}
+                <div class="product__what-you-get" {{ block.shopify_attributes }}>
+                  <h3 class="wyg-title">{{ block.settings.title }}</h3>
+                  <div class="wyg-content">
+                    {{ block.settings.content }}
+                  </div>
+                </div>
             {%- endcase -%}
           {%- endfor -%}
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">
@@ -737,6 +831,8 @@
     </script>
   </div>
 </product-info>
+
+{% render 'sticky-add-to-cart', product: product %}
 
 {% schema %}
 {
@@ -904,6 +1000,17 @@
             }
           ],
           "default": "circle"
+        }
+      ]
+    },
+    {
+      "type": "trust_badges",
+      "name": "Trust Badges (PDP)",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Displays secure checkout and quality guarantee badges."
         }
       ]
     },
@@ -2084,6 +2191,63 @@
           "default": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.default",
           "label": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.label",
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
+        }
+      ]
+    },
+    {
+      "type": "benefit_line",
+      "name": "Benefit Line",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Deep hydration with a radiant glow in just days",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "trust_line",
+      "name": "Trust Line (Micro Assurance)",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_natural",
+          "default": true,
+          "label": "Show Easy Returns"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_tested",
+          "default": true,
+          "label": "Show Secure Checkout"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_shipping",
+          "default": true,
+          "label": "Show Trusted by 100+"
+        }
+      ]
+    },
+    {
+      "type": "what_you_get",
+      "name": "What You Get",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "default": "What You Get:",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "default": "<ul><li>1x Elvara Night Cream</li><li>30-day usage</li><li>Suitable for all skin types</li></ul>",
+          "label": "Content"
         }
       ]
     }

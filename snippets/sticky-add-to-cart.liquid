@@ -1,0 +1,167 @@
+{% comment %}
+  Renders a Sticky Add-to-Cart bar at the bottom of the window
+  Accepts:
+  - product: {Object} Product Liquid object
+{% endcomment %}
+
+{%- if product != blank -%}
+  <div class="sticky-atc" id="StickyATC">
+    <div class="page-width sticky-atc__inner">
+      <div class="sticky-atc__product-info">
+        {%- if product.featured_image != blank -%}
+          <img src="{{ product.featured_image | image_url: width: 100 }}" alt="{{ product.title }}" width="50" height="50" class="sticky-atc__image" loading="lazy">
+        {%- endif -%}
+        <div class="sticky-atc__text">
+          <h3 class="sticky-atc__title">{{ product.title }}</h3>
+          <p class="sticky-atc__price">{{ product.price | money }}</p>
+        </div>
+      </div>
+      <div class="sticky-atc__actions">
+        <button class="button button--primary sticky-atc__button" id="StickyATCButton">
+          Add To Cart
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+  .sticky-atc {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(150%);
+    width: 90%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 100px; /* Floating pill shape */
+    padding: 1.2rem 2.4rem;
+    z-index: 1000;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    visibility: hidden;
+  }
+
+  .sticky-atc.is-visible {
+    transform: translateX(-50%) translateY(0);
+    visibility: visible;
+  }
+
+  .sticky-atc__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .sticky-atc__product-info {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .sticky-atc__image {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%; /* Circle thumbnail */
+    object-fit: cover;
+    display: block;
+  }
+
+  .sticky-atc__text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sticky-atc__title {
+    font-size: 1.4rem;
+    margin: 0;
+    color: var(--color-accent);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .sticky-atc__price {
+    font-size: 1.2rem;
+    margin: 0;
+    color: rgba(var(--color-foreground), 0.6);
+  }
+
+  .sticky-atc__button {
+    background-color: var(--color-accent) !important;
+    color: #FFFFFF !important;
+    border-radius: 50px !important;
+    padding: 1rem 3rem !important;
+    font-weight: 600;
+    font-size: 1.3rem;
+    letter-spacing: 0.05em;
+    min-width: auto;
+    transition: transform 0.3s ease;
+  }
+
+  .sticky-atc__button:hover {
+    transform: scale(1.03);
+  }
+
+  @media screen and (max-width: 749px) {
+    .sticky-atc {
+      bottom: 1.5rem;
+      width: 95%;
+      padding: 0.8rem 1.2rem;
+    }
+    .sticky-atc__title {
+      max-width: 120px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sticky-atc__button {
+      padding: 0.8rem 1.5rem !important;
+      font-size: 1.2rem;
+    }
+    .sticky-atc__image {
+      width: 38px;
+      height: 38px;
+    }
+  }
+</style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const stickyBar = document.getElementById('StickyATC');
+          // If the main Add to Cart button is NOT visible in the viewport, show the sticky bar
+          if (!entry.isIntersecting) {
+            stickyBar.classList.add('is-visible');
+          } else {
+            stickyBar.classList.remove('is-visible');
+          }
+        });
+      }, { rootMargin: '0px 0px -100px 0px' });
+
+      // Look for the main Add to Cart button (usually inside product-form)
+      const mainSubmitButton = document.querySelector('.product-form__submit');
+      if (mainSubmitButton) {
+        observer.observe(mainSubmitButton);
+      }
+
+      const stickyButton = document.getElementById('StickyATCButton');
+      if (stickyButton) {
+        stickyButton.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (mainSubmitButton) {
+            mainSubmitButton.click();
+          }
+        });
+      }
+
+      const stickyBar = document.getElementById('StickyATC');
+      if (stickyBar && document.body) {
+         document.body.appendChild(stickyBar);
+      }
+    });
+  </script>
+{%- endif -%}

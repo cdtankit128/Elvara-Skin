@@ -86,6 +86,19 @@
           method="post"
         >
           <div id="CartDrawer-CartItems" class="drawer__contents js-contents">
+            <div class="cart-shipping-bar center" style="padding: 1.5rem; background: rgb(var(--color-background)); border-bottom: 1px solid rgba(var(--color-foreground),0.08); margin-bottom: 1rem;">
+              {% assign threshold = 99900 %}
+              {% assign current_total = cart.total_price %}
+              {% if current_total >= threshold %}
+                <p class="h5" style="margin: 0; color: #28a745;">✨ You've unlocked Free Shipping!</p>
+              {% else %}
+                {% assign remaining = threshold | minus: current_total | money %}
+                <p class="h5" style="margin: 0; font-family: var(--font-body-family);">You're <strong>{{ remaining }}</strong> away from Free Shipping!</p>
+                <div style="width: 100%; background: #e9ecef; height: 6px; border-radius: 4px; margin-top: 8px; overflow: hidden;">
+                  <div style="background: rgb(var(--color-foreground)); height: 100%; width: {{ current_total | times: 100 | divided_by: threshold }}%;"></div>
+                </div>
+              {% endif %}
+            </div>
             {%- if cart != empty -%}
               <div class="drawer__cart-items-wrapper">
                 <table class="cart-items" role="table">
@@ -497,6 +510,24 @@
 
         <!-- Start blocks -->
         <!-- Subtotals -->
+
+        <div class="cart-upsell" style="padding: 1.5rem; background: rgba(var(--color-foreground),0.02); margin-top: 1rem; border-top: 1px solid rgba(var(--color-foreground),0.08);">
+          <p class="caption-with-letter-spacing" style="margin-bottom: 1rem;">PAIR IT WITH</p>
+          <div style="display: flex; gap: 1rem; align-items: center;">
+            {% assign upsell_product = all_products['radiance-day-cream'] %}
+            {% if upsell_product != blank %}
+              <img src="{{ upsell_product.featured_image | image_url: width: 100 }}" width="60" height="auto" style="border-radius: 0;">
+              <div style="flex: 1;">
+                <p class="h5" style="margin: 0;">{{ upsell_product.title }}</p>
+                <p class="price" style="margin: 0; font-size: 1.2rem;">{{ upsell_product.price | money }}</p>
+              </div>
+              <form method="post" action="{{ routes.cart_add_url }}" style="margin: 0;">
+                <input type="hidden" name="id" value="{{ upsell_product.variants.first.id }}">
+                <button type="submit" class="button button--secondary button--small" style="min-width: unset; padding: 0 1.5rem; min-height: 3.5rem;">Add</button>
+              </form>
+            {% endif %}
+          </div>
+        </div>
 
         <div class="cart-drawer__footer" {{ block.shopify_attributes }}>
           <div>

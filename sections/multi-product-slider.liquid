@@ -1,0 +1,253 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .multi-product-slider {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .multi-product-slider__grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding-bottom: 20px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .multi-product-slider__grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .multi-product-slider__item {
+    flex: 0 0 calc(100% - 20px);
+    scroll-snap-align: start;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+  }
+
+  @media screen and (min-width: 750px) {
+    .multi-product-slider__item {
+      flex: 0 0 calc(50% - 20px);
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .multi-product-slider__item {
+      flex: 0 0 calc(33.33% - 20px);
+    }
+  }
+
+  .multi-product-slider__item:hover {
+    transform: translateY(-5px);
+  }
+
+  .multi-product-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+
+  .multi-product-card__media {
+    position: relative;
+    padding-bottom: 100%;
+    background: #f7f5f2;
+  }
+
+  .multi-product-card__media img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 20px;
+  }
+
+  .multi-product-card__info {
+    padding: 15px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .multi-product-card__title {
+    margin: 0 0 5px;
+    font-size: 1.4rem;
+    font-family: var(--font-heading-family);
+    color: #111;
+  }
+
+  .multi-product-card__price {
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 500;
+  }
+{%- endstyle -%}
+
+<div id="Slider-{{ section.id }}" class="multi-product-slider section-{{ section.id }}-padding page-width">
+  {%- if section.settings.title != blank -%}
+    <h2 class="title inline-richtext center {{ section.settings.heading_size }}">
+      {{ section.settings.title }}
+    </h2>
+  {%- endif -%}
+
+  <div class="multi-product-slider__grid">
+    {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
+      <a href="{{ product.url }}" class="multi-product-slider__item">
+        <div class="multi-product-card">
+          <div class="multi-product-card__media">
+            {%- if product.featured_media -%}
+              {{ product.featured_media | image_url: width: 600 | image_tag: loading: 'lazy', alt: product.title }}
+            {%- else -%}
+              {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </div>
+          <div class="multi-product-card__info">
+            <h3 class="multi-product-card__title">
+              {{ product.title | remove: 'Elvara ' | remove: 'Luxury ' | split: '–' | first | split: '-' | first | strip }}
+            </h3>
+            <span class="multi-product-card__price">{{ product.price | money }}</span>
+          </div>
+        </div>
+      </a>
+    {%- endfor -%}
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const sliderGrid = document.querySelector("#Slider-{{ section.id }} .multi-product-slider__grid");
+  if (!sliderGrid) return;
+
+  let isPaused = false;
+  let cardIndex = 0;
+
+  function getCardWidth() {
+    const card = sliderGrid.querySelector(".multi-product-slider__item");
+    return card ? card.offsetWidth + 20 : 300; // width + gap
+  }
+
+  function startAutoSlide() {
+    return setInterval(() => {
+      if (isPaused) return;
+
+      const cardWidth = getCardWidth();
+      const maxScroll = sliderGrid.scrollWidth - sliderGrid.offsetWidth;
+
+      if (sliderGrid.scrollLeft >= maxScroll - 10) {
+        sliderGrid.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        sliderGrid.scrollBy({ left: cardWidth, behavior: "smooth" });
+      }
+    }, 4000);
+  }
+
+  let autoSlideInterval = startAutoSlide();
+
+  sliderGrid.addEventListener("mouseenter", () => {
+    isPaused = true;
+  });
+
+  sliderGrid.addEventListener("mouseleave", () => {
+    isPaused = false;
+  });
+
+  // Handle manual scroll reset of interval for better UX
+  sliderGrid.addEventListener("touchstart", () => {
+    isPaused = true;
+  });
+  sliderGrid.addEventListener("touchend", () => {
+    setTimeout(() => { isPaused = false; }, 2000);
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Multi-Product Slider",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Bestsellers",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 6,
+      "label": "Products to show"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Multi-Product Slider"
+    }
+  ]
+}
+{% endschema %}

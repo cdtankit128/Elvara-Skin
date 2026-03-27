@@ -1,0 +1,286 @@
+{%- style -%}
+  .video-showcase-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+  }
+
+  /* Fade-in Animation */
+  .video-showcase--reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .video-showcase--reveal.scroll-trigger--active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .video-showcase__inner {
+    max-width: {{ section.settings.container_width }}px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-showcase__header {
+    margin-bottom: 7rem; /* Increased spacing */
+  }
+
+  .video-showcase__heading {
+    font-family: 'Playfair Display', serif;
+    font-size: calc(var(--font-heading-scale) * 4.6rem);
+    font-weight: 300; /* Lighter weight */
+    line-height: 1.1;
+    margin: 0;
+    color: #1A1A1A;
+    letter-spacing: 0.15rem; /* Increased letter spacing */
+    text-transform: none;
+  }
+
+  .video-showcase__container {
+    position: relative;
+    width: 85%; /* User requested ~85% */
+    max-width: 100%;
+    margin: 0 auto 5rem; /* Better vertical spacing */
+    border-radius: 16px; /* Slightly softer */
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); /* More premium shadow */
+    background: #000;
+    line-height: 0;
+  }
+
+  .video-showcase__video {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: {{ section.settings.aspect_ratio | replace: ':', '/' }};
+    object-fit: cover;
+  }
+  
+  .video-showcase__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .video-showcase__footer {
+    max-width: 700px;
+    margin-top: 2rem;
+  }
+
+  .video-showcase__tagline {
+    font-family: var(--font-body-family), sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #1A1A1A;
+    margin: 0 0 4rem;
+    opacity: 0.75;
+    letter-spacing: 0.1rem;
+    font-style: italic;
+  }
+
+  .video-showcase__cta .button {
+    background-color: #1A1A1A;
+    color: #FFFFFF;
+    padding: 1.8rem 5rem; /* Larger, more elegant */
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    border-radius: 100px; /* Rounded corners */
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid #1A1A1A;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .video-showcase__cta .button:hover {
+    background-color: transparent;
+    color: #1A1A1A;
+    transform: translateY(-4px); /* Taller lift */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+
+  @media screen and (max-width: 749px) {
+    .video-showcase-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round }}px;
+    }
+    .video-showcase__container {
+      width: 95%; /* More space on mobile */
+      margin-bottom: 4rem;
+    }
+    .video-showcase__heading {
+      font-size: 3.6rem;
+    }
+    .video-showcase__tagline {
+      font-size: 1.8rem;
+    }
+    .video-showcase__header {
+      margin-bottom: 4rem;
+    }
+  }
+{%- endstyle -%}
+
+<div class="video-showcase-{{ section.id }}">
+  <div class="video-showcase__inner video-showcase--reveal scroll-trigger animate--fade-in">
+    {%- if section.settings.heading != blank -%}
+      <div class="video-showcase__header">
+        <h2 class="video-showcase__heading">{{ section.settings.heading | escape }}</h2>
+      </div>
+    {%- endif -%}
+
+    <div class="video-showcase__container">
+      <div class="video-showcase__overlay"></div>
+      <video
+        class="video-showcase__video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+      >
+        <source src="{{ section.settings.video_url }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div class="video-showcase__footer">
+      {%- if section.settings.tagline != blank -%}
+        <p class="video-showcase__tagline">{{ section.settings.tagline | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <div class="video-showcase__cta">
+          <a href="{{ section.settings.button_link }}" class="button">
+            {{ section.settings.button_label | escape }}
+          </a>
+          <span class="free-shipping-label">Free shipping above ₹999</span>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Video Showcase",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Experience Elvara"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "Video URL"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Confidence in Every Drop"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Layout & Style"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "min": 800,
+      "max": 1400,
+      "step": 20,
+      "unit": "px",
+      "label": "Section Max Width",
+      "default": 1100
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "label": "Video Aspect Ratio",
+      "options": [
+        {
+          "value": "16:9",
+          "label": "16:9 (Standard)"
+        },
+        {
+          "value": "21:9",
+          "label": "21:9 (Cinematic)"
+        },
+        {
+          "value": "4:3",
+          "label": "4:3 (Classic)"
+        },
+        {
+          "value": "1:1",
+          "label": "1:1 (Square)"
+        }
+      ],
+      "default": "16:9"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#F5F1EB"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 120
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Showcase"
+    }
+  ]
+}
+{% endschema %}
+
+

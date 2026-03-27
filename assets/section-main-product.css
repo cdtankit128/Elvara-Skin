@@ -1492,3 +1492,46 @@ a.product__text {
     border: none;
   }
 }
+
+/* ===== PREMIUM PDP BLOCK SPACING ===== */
+.product__info-container > * + * {
+  margin-top: 1.8rem;
+  margin-bottom: 0;
+}
+
+.product__info-container .product-form,
+.product__info-container .product__description {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.product__info-container .price {
+  margin-top: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Subtle border for collapsible tabs for high-end feel */
+.product__accordion {
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+
+.product__accordion:last-of-type {
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+
+.product__accordion summary {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.accordion__title {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Add hover effect to Buy Buttons */
+.product-form__submit:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}

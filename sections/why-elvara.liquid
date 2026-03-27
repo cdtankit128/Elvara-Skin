@@ -1,0 +1,233 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .why-elvara {
+    background-color: {{ section.settings.bg_color }};
+  }
+
+  .why-elvara__heading {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .why-elvara__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .why-elvara__grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+    }
+  }
+
+  .why-elvara__card {
+    background: #FFFFFF;
+    padding: 3rem 2rem;
+    border-radius: 1.2rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .why-elvara__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  .why-elvara__icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 2rem;
+    color: #4A4A4A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .why-elvara__icon svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 1px;
+  }
+
+  .why-elvara__title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+  }
+
+  .why-elvara__description {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #666;
+    margin: 0;
+  }
+{%- endstyle -%}
+
+<div class="why-elvara section-{{ section.id }}-padding">
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="why-elvara__heading h1">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="why-elvara__grid">
+      {%- for block in section.blocks -%}
+        <div class="why-elvara__card" {{ block.shopify_attributes }}>
+          <div class="why-elvara__icon">
+            {%- case block.settings.icon -%}
+              {%- when 'glow' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+              {%- when 'hydration' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+              {%- when 'natural' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8a8 8 0 0 1-10 10Z"/><path d="M19 10.5C19 10.5 14.5 9 10.5 13.5"/></svg>
+              {%- when 'tested' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            {%- endcase -%}
+          </div>
+          <h3 class="why-elvara__title">{{ block.settings.title }}</h3>
+          <p class="why-elvara__description">{{ block.settings.description }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Why Elvara",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Why Elvara?",
+      "label": "Heading"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "default": "#FBFBF9",
+      "label": "Background Color"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit Card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "options": [
+            { "value": "glow", "label": "Radiant Glow" },
+            { "value": "hydration", "label": "Deep Hydration" },
+            { "value": "natural", "label": "100% Natural" },
+            { "value": "tested", "label": "Dermatologically Tested" }
+          ],
+          "default": "glow",
+          "label": "Icon"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "default": "Benefit Title",
+          "label": "Title"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "description",
+          "default": "One-line description of the benefit.",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Elvara",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "glow",
+            "title": "Radiant Glow",
+            "description": "Enhances natural skin brightness"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "hydration",
+            "title": "Deep Hydration",
+            "description": "Locks moisture for long-lasting softness"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "natural",
+            "title": "100% Natural",
+            "description": "Crafted with pure, skin-safe ingredients"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "tested",
+            "title": "Dermatologically Tested",
+            "description": "Safe and effective for all skin types"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

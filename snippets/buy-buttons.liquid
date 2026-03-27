@@ -74,7 +74,7 @@
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+            class="product-form__submit premium-atc-button button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
             {% if product.selected_or_first_available_variant.available == false
               or quantity_rule_soldout
               or product.selected_or_first_available_variant == null
@@ -97,6 +97,7 @@
             {{ form | payment_button }}
           {%- endif -%}
         </div>
+        <div class="free-shipping-label" style="text-align: center; margin-top: 1.5rem;">Free shipping above ₹999</div>
       {%- endform -%}
     </product-form>
   {%- else -%}
@@ -105,7 +106,7 @@
         <button
           type="submit"
           name="add"
-          class="product-form__submit button button--full-width button--primary"
+          class="product-form__submit premium-atc-button button button--full-width button--primary"
           disabled
         >
           {{ 'products.product.sold_out' | t }}
@@ -149,3 +150,55 @@
     <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
 </div>
+
+
+<style>
+  .premium-atc-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
+    background: var(--color-accent) !important;
+    color: #fff !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .premium-atc-button:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 8px 25px rgba(var(--color-accent-rgb), 0.3);
+  }
+
+  .premium-atc-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      60deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    pointer-events: none;
+  }
+
+  .premium-atc-button:hover::after {
+    left: 100%;
+    top: 100%;
+  }
+
+  /* Pulse for availability */
+  .premium-atc-button:not([disabled]) {
+     animation: atcPulse 3s infinite;
+  }
+
+  @keyframes atcPulse {
+    0% { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    50% { box-shadow: 0 8px 25px rgba(var(--color-accent-rgb), 0.15); }
+    100% { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  }
+</style>

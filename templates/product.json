@@ -3,214 +3,77 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
-        "title": {
-          "type": "title"
-        },
-        "caption": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.metafields.descriptors.subtitle.value }}",
-            "text_style": "subtitle"
-          }
-        },
-        "price": {
-          "type": "price"
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button"
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector"
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "description": {
-          "type": "description"
-        },
-        "collapsible-row-0": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Materials",
-            "icon": "leather",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-1": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Shipping & Returns",
-            "icon": "truck",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Dimensions",
-            "icon": "ruler",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-3": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Care Instructions",
-            "icon": "heart",
-            "content": "",
-            "page": ""
-          }
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
-        }
+        "vendor": { "type": "text", "settings": { "text": "{{ product.vendor }}", "text_style": "uppercase" } },
+        "title": { "type": "title" },
+        "caption": { "type": "text", "settings": { "text": "{{ product.metafields.descriptors.subtitle.value }}", "text_style": "subtitle" } },
+        "price": { "type": "price" },
+        "benefit_highlights": { "type": "text", "settings": { "text": "🌿 100% Vegan & Cruelty-Free | ✨ Dermatologically Tested", "text_style": "caption-with-letter-spacing" } },
+        "benefit_line": { "type": "benefit_line", "settings": { "text": "Deep hydration with a radiant glow in just days" } },
+        "variant_picker": { "type": "variant_picker", "settings": { "picker_type": "button" } },
+        "quantity_selector": { "type": "quantity_selector" },
+        "urgency_indicator": { "type": "text", "settings": { "text": "Limited availability", "text_style": "subtitle" } },
+        "buy_buttons": { "type": "buy_buttons", "settings": { "show_dynamic_checkout": true, "show_gift_card_recipient": true } },
+        "trust_line": { "type": "trust_line", "settings": { "show_natural": true, "show_tested": true, "show_shipping": true } },
+        "what_you_get": { "type": "what_you_get", "settings": { "title": "What You Get:", "content": "<ul><li>1x Elvara Night Cream<\/li><li>30-day usage<\/li><li>Suitable for all skin types<\/li><\/ul>" } },
+        "trust_badges_pdp": { "type": "custom_liquid", "settings": { "custom_liquid": "{% render 'trust-badges-pdp' %}" } },
+        "description": { "type": "description" },
+        "collapsible-row-0": { "type": "collapsible_tab", "settings": { "heading": "Materials", "icon": "leather", "content": "", "page": "" } },
+        "collapsible-row-1": { "type": "collapsible_tab", "settings": { "heading": "Shipping & Returns", "icon": "truck", "content": "", "page": "" } },
+        "collapsible-row-2": { "type": "collapsible_tab", "settings": { "heading": "Dimensions", "icon": "ruler", "content": "", "page": "" } },
+        "collapsible-row-3": { "type": "collapsible_tab", "settings": { "heading": "Care Instructions", "icon": "heart", "content": "", "page": "" } },
+        "share": { "type": "share", "settings": { "share_label": "Share" } }
       },
       "block_order": [
-        "vendor",
-        "title",
-        "caption",
-        "price",
-        "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
-        "description",
-        "collapsible-row-0",
-        "collapsible-row-1",
-        "collapsible-row-2",
-        "collapsible-row-3",
-        "share"
+        "vendor", "title", "caption", "price", "benefit_line", "variant_picker", "quantity_selector", "urgency_indicator", "buy_buttons", "trust_line", "what_you_get", "trust_badges_pdp", "description", "collapsible-row-0", "collapsible-row-1", "collapsible-row-2", "collapsible-row-3", "share"
       ],
       "settings": {
-        "enable_sticky_info": true,
-        "gallery_layout": "stacked",
-        "media_size": "large",
-        "constrain_to_viewport": true,
-        "mobile_thumbnails": "hide",
-        "hide_variants": true,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
+        "enable_sticky_info": true, "gallery_layout": "stacked", "media_size": "large", "constrain_to_viewport": true, "mobile_thumbnails": "hide", "hide_variants": true, "enable_video_looping": false, "padding_top": 36, "padding_bottom": 12
       }
     },
-    "image-with-text": {
-      "type": "image-with-text",
-      "blocks": {
-        "image-with-text-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image with text",
-            "heading_size": "h1"
-          }
-        },
-        "image-with-text-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "image-with-text-0",
-        "image-with-text-1"
-      ],
+    "product_benefits": {
+      "type": "product-benefits",
       "settings": {
-        "height": "small",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "color_scheme": "scheme-2",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "heading": "Why You'll Love It",
+        "background_color": "#FBFBF9",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column-0": {
-          "type": "column",
-          "settings": {
-            "title": "Free Shipping",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column-1": {
-          "type": "column",
-          "settings": {
-            "title": "Hassle-Free Exchanges",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column-0",
-        "column-1"
-      ],
+    "product_ingredients": {
+      "type": "product-ingredients",
       "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 2,
-        "column_alignment": "left",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "heading": "What's Inside",
+        "background_color": "#FFFFFF",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "product_reviews": {
+      "type": "product-reviews-minimal",
+      "settings": {
+        "heading": "Loved by Thousands",
+        "overall_rating": "4.8/5",
+        "customer_count": "120+",
+        "background_color": "#F5F1EB",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "related-products": {
       "type": "related-products",
+      "settings": { "heading": "Complete Your Routine", "heading_size": "h1", "columns_desktop": 4, "color_scheme": "scheme-1", "padding_top": 80, "padding_bottom": 80 }
+    },
+    "product_final_cta": {
+      "type": "product-final-cta",
       "settings": {
-        "heading": "You may also like",
-        "heading_size": "h2",
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 28
+        "heading": "Ready for Your Best Skin?",
+        "subtext": "Join thousands of glowing customers and start your Elvara journey today.",
+        "button_label": "Add to Cart",
+        "background_color": "#FBFBF9",
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     }
   },
-  "order": [
-    "main",
-    "image-with-text",
-    "multicolumn",
-    "related-products"
-  ]
+  "order": ["main", "product_benefits", "product_ingredients", "product_reviews", "related-products", "product_final_cta"]
 }

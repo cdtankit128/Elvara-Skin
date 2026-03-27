@@ -1,0 +1,188 @@
+{%- style -%}
+  .product-benefits {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.background_color }};
+  }
+
+  .product-benefits__container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .product-benefits__heading {
+    text-align: center;
+    font-size: 3.2rem;
+    letter-spacing: 0.1rem;
+    margin-bottom: 4rem;
+    color: #1A1A1A;
+  }
+
+  .product-benefits__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .product-benefits__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .product-benefits__icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    background-color: #7BB284;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-top: 0.4rem;
+  }
+
+  .product-benefits__content h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #1A1A1A;
+  }
+
+  .product-benefits__content p {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  @media screen and (max-width: 749px) {
+    .product-benefits__heading {
+      font-size: 2.8rem;
+    }
+  }
+{%- endstyle -%}
+
+<section class="product-benefits">
+  <div class="product-benefits__container">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="product-benefits__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="product-benefits__list">
+      {%- for block in section.blocks -%}
+        <div class="product-benefits__item" {{ block.shopify_attributes }}>
+          <div class="product-benefits__icon">✔</div>
+          <div class="product-benefits__content">
+            {%- if block.settings.title != blank -%}
+              <h3>{{ block.settings.title }}</h3>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <p>{{ block.settings.text }}</p>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Benefits",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Why You'll Love It",
+      "label": "Heading"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "default": "#FBFBF9",
+      "label": "Background Color"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Benefit Title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Describe the benefit here in one short line.",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Benefits",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Deep Hydration",
+            "text": "Keeps your skin soft and plump all day long."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Natural Glow",
+            "text": "Enhances brightness instantly for a radiant finish."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Lightweight Formula",
+            "text": "No greasy feel, perfect for all-day wear."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Safe for All",
+            "text": "Crafted with pure ingredients for every skin type."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
