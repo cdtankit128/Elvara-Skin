@@ -2,6 +2,12 @@
 
 Elvara Skin is a high-end, luxury-focused Shopify storefront theme. It has been meticulously custom-developed to provide a minimalist, premium e-commerce experience tailored for skincare and beauty brands.
 
+## Live Demo
+
+**Check out the live store!**
+- **URL:** [https://elvara-skin-dev.myshopify.com/](https://elvara-skin-dev.myshopify.com/)
+- **Store Password:** `Test@123`
+
 ## Project Description
 
 Developed to serve as an industry-leading storefront, the Elvara Skin theme focuses on pixel-perfect layouts, modern dynamic aesthetics, and top-tier user experiences. The overarching design language embodies a cohesive, minimalist high-end brand aesthetic.
